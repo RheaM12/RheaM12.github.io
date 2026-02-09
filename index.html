@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clothing Store</title>
+  <title>Clothing Store - Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
 <!-- NAVBAR -->
 <header class="navbar">
   <!-- LEFT NAV LINKS -->
-  <nav class="nav-left">
+  <nav class="nav-left" aria-label="Main navigation">
     <a href="#" class="nav-button">Home</a>
     <a href="#" class="nav-button">Shop</a>
     <a href="#" class="nav-button">About Us</a>
@@ -21,30 +21,45 @@
 
   <!-- CENTER LOGO -->
   <div class="nav-center">
-    <img src="logo.png" alt="Store Logo" class="logo">
+    <img src="logo.png" alt="Clothing Store Logo" class="logo">
   </div>
 
   <!-- RIGHT SEARCH BAR -->
   <div class="nav-right">
-    <input type="search" aria-label="Search products" placeholder="Search">
+    <label for="search" class="visually-hidden">Search products</label>
+    <input type="search" id="search" aria-label="Search products" placeholder="Search">
   </div>
 </header>
 
 <!-- MAIN CONTENT -->
 <main class="main-content">
-  <section class="products-section">
+  <h1 class="visually-hidden">Clothing Store Home Page</h1>
 
-   <div class="products">
-  <div class="product"><img src="product1.jpg" alt="Product 1"></div>
-  <div class="product"><img src="product2.jpg" alt="Product 2"></div>
-  <div class="product"><img src="product3.jpg" alt="Product 3"></div>
-  <div class="product"><img src="product4.jpg" alt="Product 4"></div>
-</div>
+  <section class="products-section" aria-labelledby="new-collection-heading">
 
+    <!-- PRODUCT GRID -->
+    <div class="products">
+      <div class="product">
+        <img src="product1.jpg" alt="Light Pink Women Pants with two pockets">
+        <p><strong>Light Pink Women Pants with two pockets</strong></p>
+      </div>
+      <div class="product">
+        <img src="product2.jpg" alt=" Gray Fleece for women">
+        <p><strong>Light Gray Fleece</strong></p>
+      </div>
+      <div class="product">
+        <img src="product3.jpg" alt="Yellow Sleeveless Dress fro Women">
+        <p><strong>Yellow Sleeveless Dress fro Women </strong></p>
+      </div>
+      <div class="product">
+        <img src="product4.jpg" alt="Dark brown dress for women">
+        <p><strong>Dark brown dress for women</strong></p>
+      </div>
+    </div>
 
-    <!-- NEW COLLECTION TEXT -->
+    <!-- NEW COLLECTION TEXT ON SIDE -->
     <aside class="new-collection">
-      <h2>NEW COLLECTION</h2>
+      <h2 id="new-collection-heading">NEW COLLECTION</h2>
       <p>Made to Wear</p>
     </aside>
 
@@ -53,7 +68,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 Clothing Store</p>
+  <p>&copy; Rmohle MadeToStandOut</p>
 </footer>
 
 </body>
