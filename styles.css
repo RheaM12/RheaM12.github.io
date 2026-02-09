@@ -1,3 +1,4 @@
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -44,11 +45,12 @@ body {
 .nav-left .nav-button {
   background-color: #e0e0e0;  /* light gray button boxes */
   color: #111;                 /* dark text for readability */
-  padding: 8px 15px;
+  padding: 6px 12px;           /* smaller padding for normal size */
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
+  font-size: 14px;             /* smaller font for buttons */
 }
 
 .nav-left .nav-button:hover,
@@ -65,7 +67,7 @@ body {
 /* RIGHT SEARCH BAR */
 .nav-right input[type="search"] {
   padding: 6px 10px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -81,7 +83,7 @@ body {
 .products-section {
   display: flex;
   gap: 2rem;
-  align-items: stretch; /* makes children equal height for vertical centering */
+  align-items: stretch; /* ensures side column matches products height */
 }
 
 /* PRODUCT BOXES GRID */
@@ -94,13 +96,22 @@ body {
 
 .product {
   border: 1px solid #ccc;
-  padding: 1rem;
+  padding: 0.5rem;         /* smaller padding */
   text-align: center;
+  background-color: #fafafa; /* subtle background */
+  border-radius: 5px;
 }
 
 .product img {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto 0.5rem auto; /* spacing under image */
+}
+
+.product p {
+  font-size: 14px;  /* smaller product text */
+  margin: 0;
 }
 
 /* NEW COLLECTION TEXT ON SIDE */
@@ -114,14 +125,31 @@ body {
 }
 
 .new-collection h2 {
-  font-size: 2rem; /* large text ≥24px */
+  font-size: 1.8rem; /* slightly smaller than before */
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .new-collection p {
-  font-size: 1rem;
+  font-size: 14px;
   color: #555;
+  margin-bottom: 1rem;
+}
+
+/* NEW BOX UNDER COLLECTION TEXT */
+.new-collection-box {
+  width: 100%;
+  background-color: #e0e0e0; /* light gray box */
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.new-collection-box p {
+  margin: 0;
+  color: #111;
+  font-size: 14px;
 }
 
 /* FOOTER */
@@ -154,3 +182,4 @@ footer {
     margin: 1rem 0;
   }
 }
+
