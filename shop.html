@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop - Clothing Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<script>
+  // Redirect if not logged in
+  if (localStorage.getItem("loggedIn") !== "true") {
+    alert("You must log in or create an account to access the Shop.");
+    window.location.href = "login.html";
+  }
+</script>
+
+<header class="navbar">
+  <nav class="nav-left">
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="shop.html" class="nav-button">Shop</a>
+    <a href="collection.html" class="nav-button">Collection</a>
+    <a href="cart.html" class="nav-button">Cart</a>
+    <a href="login.html" class="nav-button">Log In</a>
+  </nav>
+</header>
+
+<main style="padding:2rem;">
+  <h1>Welcome to the Shop</h1>
+  <p>This is a placeholder for your products page.</p>
+</main>
+
+</body>
+</html>
