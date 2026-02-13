@@ -1,68 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-                <style>/* LOGIN BOX */
-.login-container {
-  width: 300px;
-  margin: 5% auto; /* centers vertically & horizontally */
-  padding: 2rem;
-  background-color: #fafafa; 
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
+  <meta charset="UTF-8">
+  <title>Login - Clothing Store</title>
+  <style>
+    /* LOGIN BOX */
+    .login-container {
+      width: 300px;
+      margin: 5% auto;
+      padding: 2rem;
+      background-color: #fafafa;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
 
-.login-container h2 {
-  margin-bottom: 1.5rem;
-  color: #111;
-}
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
 
-.login-container input {
-  width: 90%;
-  padding: 8px;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+    .login-container input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-.login-container button {
-  width: 95%;
-  padding: 10px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+    .login-container button {
+      width: 95%;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-.login-container button:hover {
-  background-color: #d1d1d1;
-}
+    .login-container button:hover {
+      background-color: #d1d1d1;
+    }
 
-.login-container a {
-  color: #111;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .login-container a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-.login-container a:hover {
-  text-decoration: underline;
-}</style>
-            </head>
-            <body>
-                
+    .login-container a:hover {
+      text-decoration: underline;
+    }
 
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .nav-button {
+      background-color: #e0e0e0;
+      color: #111;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #d1d1d1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="nav-button">Home</a>
+  <a href="shop.html" class="nav-button">Shop</a>
+  <a href="collection.html" class="nav-button">Collection</a>
+  <a href="cart.html" class="nav-button">Cart</a>
+  <a href="#" id="loginBtn" class="nav-button">Log In</a>
+  <a href="about.html" class="nav-button">About Us</a>
+</header>
+
+<!-- LOGIN BOX -->
 <div class="login-container">
   <h2>Login to Your Account</h2>
 
   <form onsubmit="return validateLogin()">
     <label for="email">Email:</label><br>
-    <input type="email" id="email" required=""><br><br>
+    <input type="email" id="email" required><br><br>
 
     <label for="password">Password:</label><br>
-    <input type="password" id="password" required=""><br><br>
+    <input type="password" id="password" required><br><br>
 
     <button type="submit">Log In</button>
   </form>
@@ -74,37 +112,52 @@
 </div>
 
 <script>
-function validateLogin() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+  // LOGIN FUNCTION
+  function validateLogin() {
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
 
-  if (email === "" || password === "") {
-    alert("Please fill in all fields.");
+    if (!email || !password) {
+      alert("Please fill in all fields.");
+      return false;
+    }
+
+    let user = { email: "test@email.com", password: "1234" };
+
+    if (email === user.email && password === user.password) {
+      alert("Login successful!");
+
+      // Set logged-in flag
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("userEmail", email);
+
+      // Redirect to Shop
+      window.location.href = "shop.html";
+    } else {
+      alert("Invalid email or password.");
+    }
+
     return false;
   }
 
-  let user = { email: "test@email.com", password: "1234" };
+  // DYNAMIC LOGIN / LOGOUT BUTTON
+  const btn = document.getElementById("loginBtn");
 
-  if (email === user.email && password === user.password) {
-  alert("Login successful!");
-
-  // ✅ Set logged-in flag
-  localStorage.setItem("loggedIn", "true");
-  localStorage.setItem("userEmail", email); // optional
-
-  // ✅ Redirect to Shop page
-  window.location.href = "shop.html";
-} else {
-  alert("Invalid email or password.");
-}
-
-
-  return false;
-}
+  if (localStorage.getItem("loggedIn") === "true") {
+    btn.textContent = "Logout";
+    btn.onclick = function() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("userEmail");
+      alert("You have logged out.");
+      window.location.href = "index.html";
+    }
+  } else {
+    btn.onclick = function() {
+      window.location.href = "login.html";
+    }
+  }
 </script>
 
+</body>
+</html>
 
-                <script> </script>
-            
-        
-    </body>
