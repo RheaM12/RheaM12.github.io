@@ -85,8 +85,33 @@ function addToCart(productName) {
   alert(productName + " added to cart!");
   console.log(cart);
 }
-</script>
+<script>
+// DYNAMIC LOGIN / LOGOUT BUTTON
+const navButtons = document.querySelectorAll('.nav-left .nav-button');
+const loginBtn = Array.from(navButtons).find(btn => btn.textContent === "Log In");
+const homeBtn = Array.from(navButtons).find(btn => btn.textContent === "Home");
 
+// Make Home button always go to main dashboard
+homeBtn.onclick = function() {
+  window.location.href = "index.html"; // redirects to dashboard
+}
+
+
+if (localStorage.getItem("loggedIn") === "true") {
+  loginBtn.textContent = "Logout";
+  loginBtn.onclick = function() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    alert("You have logged out.");
+    window.location.href = "index.html"; // stay on home after logout
+  }
+} else {
+  loginBtn.onclick = function() {
+    window.location.href = "login.html"; // go to login page if not logged in
+  }
+}
+</script>
 
 </body>
 </html>
