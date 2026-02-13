@@ -12,11 +12,12 @@
 <header class="navbar">
   <!-- LEFT NAV LINKS -->
   <nav class="nav-left" aria-label="Main navigation">
-    <a href="#" class="nav-button">Home</a>
-    <a href="#" class="nav-button">Shop</a>
-    <a href="#" class="nav-button">About Us</a>
-    <a href="#" class="nav-button">Collection</a>
-    <a href="#" class="nav-button">Log In</a>
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="shop.html" class="nav-button">Shop</a>
+    <a href="about.html" class="nav-button">About Us</a>
+    <a href="collection.html" class="nav-button">Collection</a>
+    <a href="cart.html" class="nav-button">Cart</a>
+    <a href="login.html" class="nav-button">Log In</a>
   </nav>
 
   <!-- CENTER LOGO -->
@@ -38,24 +39,30 @@
   <section class="products-section" aria-labelledby="new-collection-heading">
 
     <!-- PRODUCT GRID -->
-    <div class="products">
-      <div class="product">
-        <img src="product1.jpg" alt="Light Pink Women Pants with two pockets">
-        <p><strong>Light Pink Women Pants with two pockets</strong></p>
-      </div>
-      <div class="product">
-        <img src="product2.jpg" alt=" Gray Fleece for women">
-        <p><strong>Light Gray Fleece</strong></p>
-      </div>
-      <div class="product">
-        <img src="product3.jpg" alt="Yellow Sleeveless Dress fro Women">
-        <p><strong>Yellow Sleeveless Dress fro Women </strong></p>
-      </div>
-      <div class="product">
-        <img src="product4.jpg" alt="Dark brown dress for women">
-        <p><strong>Dark brown dress for women</strong></p>
-      </div>
-    </div>
+    <div class="product">
+  <img src="product1.jpg" alt="Light Pink Women Pants with two pockets">
+  <p><strong>Light Pink Women Pants with two pockets</strong></p>
+  <button onclick="addToCart('Light Pink Women Pants')">Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="product2.jpg" alt="Light Gray Fleece for women">
+  <p><strong>Light Gray Fleece</strong></p>
+  <button onclick="addToCart('Light Gray Fleece')">Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="product3.jpg" alt="Yellow Sleeveless Dress for women">
+  <p><strong>Yellow Sleeveless Dress for Women</strong></p>
+  <button onclick="addToCart('Yellow Sleeveless Dress')">Add to Cart</button>
+</div>
+
+<div class="product">
+  <img src="product4.jpg" alt="Dark brown dress for women">
+  <p><strong>Dark Brown Dress for Women</strong></p>
+  <button onclick="addToCart('Dark Brown Dress')">Add to Cart</button>
+</div>
+
 
     <!-- NEW COLLECTION TEXT ON SIDE -->
     <aside class="new-collection">
@@ -70,6 +77,16 @@
 <footer>
   <p>&copy; Rmohle MadeToStandOut</p>
 </footer>
+  <script>
+let cart = [];
+
+function addToCart(productName) {
+  cart.push(productName);
+  alert(productName + " added to cart!");
+  console.log(cart);
+}
+</script>
+
 
 </body>
 </html>
