@@ -86,10 +86,18 @@ function validateLogin() {
   let user = { email: "test@email.com", password: "1234" };
 
   if (email === user.email && password === user.password) {
-    alert("Login successful!");
-  } else {
-    alert("Invalid email or password.");
-  }
+  alert("Login successful!");
+
+  // ✅ Set logged-in flag
+  localStorage.setItem("loggedIn", "true");
+  localStorage.setItem("userEmail", email); // optional
+
+  // ✅ Redirect to Shop page
+  window.location.href = "shop.html";
+} else {
+  alert("Invalid email or password.");
+}
+
 
   return false;
 }
