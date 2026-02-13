@@ -1,159 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-                <style>/* signup.css - styles for signup page */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  color: #111;
-  margin: 0;
-  padding: 0;
-}
-
-/* Container box for signup form */
-.signup-container {
-  width: 350px;
-  margin: 5% auto; /* center vertically & horizontally */
-  padding: 2rem;
-  background-color: #fafafa;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-/* Heading */
-.signup-container h2 {
-  margin-bottom: 1.5rem;
-}
-
-/* Inputs */
-.signup-container input {
-  width: 90%;
-  padding: 8px;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-/* Buttons */
-.signup-container button {
-  width: 95%;
-  padding: 10px;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.signup-container button:hover {
-  background-color: #d1d1d1;
-}
-
-/* Success message */
-#successMessage {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-#successMessage p {
-  font-weight: bold;
-  color: green;
-}
-
-/* Log In button inside success message */
-#successMessage a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  border-radius: 5px;
-  background-color: #e0e0e0;
-  color: #111;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-#successMessage a:hover {
-  background-color: #d1d1d1;
-}
-</style>
-            </head>
-            <body>
-                
-
-
   <meta charset="UTF-8">
   <title>Create Account - Clothing Store</title>
-  <link rel="stylesheet" href="signup.css"> <!-- Link your new CSS -->
+  <style>
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ccc;
+    }
 
+    .nav-button {
+      background-color: #e0e0e0;
+      color: #111;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
 
+    .nav-button:hover {
+      background-color: #d1d1d1;
+    }
 
+    /* SIGNUP BOX */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-container {
+      width: 350px;
+      margin: 5% auto;
+      padding: 2rem;
+      background-color: #fafafa;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .signup-container input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .signup-container button {
+      width: 95%;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .signup-container button:hover {
+      background-color: #d1d1d1;
+    }
+
+    /* Success message */
+    #successMessage {
+      margin-top: 1rem;
+      text-align: center;
+      display: none;
+    }
+
+    #successMessage p {
+      font-weight: bold;
+      color: green;
+    }
+
+    #successMessage a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 5px;
+      background-color: #e0e0e0;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    #successMessage a:hover {
+      background-color: #d1d1d1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="nav-button">Home</a>
+  <a href="shop.html" class="nav-button">Shop</a>
+  <a href="collection.html" class="nav-button">Collection</a>
+  <a href="cart.html" class="nav-button">Cart</a>
+  <a href="#" id="loginBtn" class="nav-button">Log In</a>
+  <a href="about.html" class="nav-button">About Us</a>
+</header>
+
+<!-- SIGNUP FORM -->
 <div class="signup-container">
   <h2>Create Your Account</h2>
 
   <form id="signupForm" onsubmit="return createAccount()">
-
-    <label for="firstName">First Name:</label><br>
-    <input type="text" id="firstName" required=""><br><br>
-
-    <label for="lastName">Last Name:</label><br>
-    <input type="text" id="lastName" required=""><br><br>
-
-    <label for="email">Email Address:</label><br>
-    <input type="email" id="email" required=""><br><br>
-
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" required=""><br><br>
-
-    <label for="verifyPassword">Verify Password:</label><br>
-    <input type="password" id="verifyPassword" required=""><br><br>
-
+    <input type="text" id="firstName" placeholder="First Name" required><br>
+    <input type="text" id="lastName" placeholder="Last Name" required><br>
+    <input type="email" id="email" placeholder="Email Address" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <input type="password" id="verifyPassword" placeholder="Verify Password" required><br>
     <button type="submit">Submit</button>
   </form>
 
-  <!-- Success message -->
-  <div id="successMessage" style="display:none;">
+  <div id="successMessage">
     <p>You have successfully created an account!</p>
     <a href="login.html">Log In</a>
   </div>
 </div>
 
 <script>
-function createAccount() {
-  let firstName = document.getElementById("firstName").value.trim();
-  let lastName = document.getElementById("lastName").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let password = document.getElementById("password").value;
-  let verifyPassword = document.getElementById("verifyPassword").value;
+  // CREATE ACCOUNT FUNCTION
+  function createAccount() {
+    let firstName = document.getElementById("firstName").value.trim();
+    let lastName = document.getElementById("lastName").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let verifyPassword = document.getElementById("verifyPassword").value;
 
-  if (!firstName || !lastName || !email || !password || !verifyPassword) {
-    alert("Please fill in all fields.");
-    return false;
+    if (!firstName || !lastName || !email || !password || !verifyPassword) {
+      alert("Please fill in all fields.");
+      return false;
+    }
+
+    if (password !== verifyPassword) {
+      alert("Passwords do not match!");
+      return false;
+    }
+
+    
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userName", firstName + " " + lastName);
+
+   
+    document.getElementById("signupForm").style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+
+    console.log("New user created:", {firstName, lastName, email});
+    return false; // prevent reload
   }
 
-  if (password !== verifyPassword) {
-    alert("Passwords do not match!");
-    return false;
+  // LOGIN / LOGOUT BUTTON
+  const btn = document.getElementById("loginBtn");
+
+  if (localStorage.getItem("loggedIn") === "true") {
+    btn.textContent = "Logout";
+    btn.onclick = function() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userName");
+      alert("You have logged out.");
+      window.location.href = "index.html";
+    }
+  } else {
+    btn.onclick = function() {
+      window.location.href = "login.html";
+    }
   }
-
-  let newUser = { firstName, lastName, email, password };
-
-  // Hide form and show success message
-  document.getElementById("signupForm").style.display = "none";
-  document.getElementById("successMessage").style.display = "block";
-
-  console.log("New user created:", newUser); // demo only
-  return false; // prevent reload
-}
 </script>
 
-
-
-
-                <script>// Write JavaScript here</script>
-            
-        
-    </body>
+</body>
+</html>
