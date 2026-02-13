@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+                <style>/* signup.css - styles for signup page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #111;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container box for signup form */
+.signup-container {
+  width: 350px;
+  margin: 5% auto; /* center vertically & horizontally */
+  padding: 2rem;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Heading */
+.signup-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs */
+.signup-container input {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.signup-container button {
+  width: 95%;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-container button:hover {
+  background-color: #d1d1d1;
+}
+
+/* Success message */
+#successMessage {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#successMessage p {
+  font-weight: bold;
+  color: green;
+}
+
+/* Log In button inside success message */
+#successMessage a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#successMessage a:hover {
+  background-color: #d1d1d1;
+}
+</style>
+            </head>
+            <body>
+                
+
+
+  <meta charset="UTF-8">
+  <title>Create Account - Clothing Store</title>
+  <link rel="stylesheet" href="signup.css"> <!-- Link your new CSS -->
+
+
+
+<div class="signup-container">
+  <h2>Create Your Account</h2>
+
+  <form id="signupForm" onsubmit="return createAccount()">
+
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" required=""><br><br>
+
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" required=""><br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" required=""><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" required=""><br><br>
+
+    <label for="verifyPassword">Verify Password:</label><br>
+    <input type="password" id="verifyPassword" required=""><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Success message -->
+  <div id="successMessage" style="display:none;">
+    <p>You have successfully created an account!</p>
+    <a href="login.html">Log In</a>
+  </div>
+</div>
+
+<script>
+function createAccount() {
+  let firstName = document.getElementById("firstName").value.trim();
+  let lastName = document.getElementById("lastName").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value;
+  let verifyPassword = document.getElementById("verifyPassword").value;
+
+  if (!firstName || !lastName || !email || !password || !verifyPassword) {
+    alert("Please fill in all fields.");
+    return false;
+  }
+
+  if (password !== verifyPassword) {
+    alert("Passwords do not match!");
+    return false;
+  }
+
+  let newUser = { firstName, lastName, email, password };
+
+  // Hide form and show success message
+  document.getElementById("signupForm").style.display = "none";
+  document.getElementById("successMessage").style.display = "block";
+
+  console.log("New user created:", newUser); // demo only
+  return false; // prevent reload
+}
+</script>
+
+
+
+
+                <script>// Write JavaScript here</script>
+            
+        
+    </body>
