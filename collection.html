@@ -20,14 +20,49 @@
     <a href="shop.html" class="nav-button">Shop</a>
     <a href="collection.html" class="nav-button">Collection</a>
     <a href="cart.html" class="nav-button">Cart</a>
-    <a href="login.html" class="nav-button">Log In</a>
+    <a href="login.html" class="nav-button" id="loginBtn">Log In</a>
   </nav>
 </header>
 
 <main style="padding:2rem;">
   <h1>Our Collection</h1>
-  <p>This is a placeholder for your collection page.</p>
+  <div id="collection-container">
+    <p>Loading featured collections...</p>
+  </div>
 </main>
+
+<script>
+  // Dynamic login/logout button
+  const loginBtn = document.getElementById("loginBtn");
+  if (localStorage.getItem("loggedIn") === "true") {
+    loginBtn.textContent = "Logout";
+    loginBtn.onclick = () => {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("userEmail");
+      alert("You have logged out.");
+      window.location.href = "index.html";
+    }
+  } else {
+    loginBtn.onclick = () => window.location.href = "login.html";
+  }
+
+  // Display collections dynamically
+  const collections = [
+    "Summer Essentials",
+    "Winter Collection",
+    "Formal Attire",
+    "Casual Wear"
+  ];
+
+  const container = document.getElementById("collection-container");
+  container.innerHTML = "";
+  collections.forEach(item => {
+    const div = document.createElement("div");
+    div.style.marginBottom = "10px";
+    div.innerHTML = `<strong>${item}</strong>`;
+    container.appendChild(div);
+  });
+</script>
 
 </body>
 </html>
