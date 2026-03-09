@@ -4,10 +4,73 @@
   <meta charset="UTF-8">
   <title>Cart - Clothing Store</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* CART MAIN CONTENT */
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cart-box {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fafafa;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-box img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .cart-info {
+      flex: 1;
+    }
+
+    .cart-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .cart-buttons {
+      text-align: right;
+    }
+
+    .cart-buttons button {
+      padding: 8px 12px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cart-buttons button:hover {
+      background-color: #d1d1d1;
+    }
+
+    .empty-cart {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #555;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fafafa;
+    }
+  </style>
 </head>
 <body>
 
 <script>
+  // Redirect if not logged in
   if (localStorage.getItem("loggedIn") !== "true") {
     alert("You must log in or create an account to access the Cart.");
     window.location.href = "login.html";
@@ -24,10 +87,10 @@
   </nav>
 </header>
 
-<main style="padding:2rem;">
+<main>
   <h1>Your Cart</h1>
   <div id="cart-container">
-    <p>Loading your cart...</p>
+    <!-- Cart items will appear here -->
   </div>
 </main>
 
@@ -47,20 +110,52 @@
     loginBtn.onclick = () => window.location.href = "login.html";
   }
 
-  // Display cart items dynamically
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const container = document.getElementById("cart-container");
-  container.innerHTML = "";
+  // Products list with image mapping
+  const productImages = {
+    "Light Pink Women Pants": "product1.jpg",
+    "Light Gray Fleece": "product2.jpg",
+    "Yellow Sleeveless Dress": "product3.jpg",
+    "Dark Brown Dress": "product4.jpg"
+  };
 
-  if (cart.length === 0) {
-    container.innerHTML = "<p>Your cart is empty.</p>";
+  const cartContainer = document.getElementById("cart-container");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if(cart.length === 0){
+    cartContainer.innerHTML = `<div class="empty-cart">Your cart is empty!</div>`;
   } else {
-    cart.forEach(item => {
+    cartContainer.innerHTML = "";
+    cart.forEach((item, index) => {
       const div = document.createElement("div");
-      div.style.marginBottom = "10px";
-      div.textContent = item;
-      container.appendChild(div);
+      div.className = "cart-box";
+      div.innerHTML = `
+        <img src="${productImages[item]}" alt="${item}">
+        <div class="cart-info">
+          <h3>${item}</h3>
+        </div>
+        <div class="cart-buttons">
+          <button onclick="removeItem(${index})">Remove</button>
+        </div>
+      `;
+      cartContainer.appendChild(div);
     });
+
+    // Add Proceed to Checkout button at the bottom
+    const checkoutDiv = document.createElement("div");
+    checkoutDiv.style.textAlign = "center";
+    checkoutDiv.style.marginTop = "2rem";
+    checkoutDiv.innerHTML = `<button onclick="proceedCheckout()">Proceed to Checkout</button>`;
+    cartContainer.appendChild(checkoutDiv);
+  }
+
+  function removeItem(index){
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload(); // refresh to update cart
+  }
+
+  function proceedCheckout(){
+    alert("Proceeding to checkout. (This is just a demo!)");
   }
 </script>
 
