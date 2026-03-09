@@ -1,118 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Clothing Store - Home</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Trendy women's clothing store featuring dresses, pants, and modern fashion collections.">
+  <meta name="keywords" content="women clothing, fashion store, dresses, online clothing shop">
+  <meta name="author" content="Rmohle">
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <!-- LEFT NAV LINKS -->
-  <nav class="nav-left" aria-label="Main navigation">
-    <a href="index.html" class="nav-button">Home</a>
-    <a href="shop.html" class="nav-button">Shop</a>
-    <a href="about.html" class="nav-button">About Us</a>
-    <a href="collection.html" class="nav-button">Collection</a>
-    <a href="cart.html" class="nav-button">Cart</a>
-    <a href="login.html" class="nav-button">Log In</a>
-  </nav>
+  <!-- NAVBAR -->
+  <header class="navbar">
 
-  <!-- CENTER LOGO -->
-  <div class="nav-center">
-    <img src="logo.png" alt="Clothing Store Logo" class="logo">
-  </div>
+    <!-- Left navigation links -->
+    <nav class="nav-left">
+      <ul>
+        <li><a href="index.html" class="nav-button">Home</a></li>
+        <li><a href="shop.html" class="nav-button">Shop</a></li>
+        <li><a href="about.html" class="nav-button">About Us</a></li>
+        <li><a href="collection.html" class="nav-button">Collection</a></li>
+        <li><a href="cart.html" class="nav-button">Cart</a></li>
+        <li><a href="login.html" class="nav-button">Log In</a></li>
+      </ul>
+    </nav>
 
-  <!-- RIGHT SEARCH BAR -->
-  <div class="nav-right">
-    <label for="search" class="visually-hidden">Search products</label>
-    <input type="search" id="search" aria-label="Search products" placeholder="Search">
-  </div>
-</header>
+    <!-- Center logo -->
+    <div class="nav-center">
+      <img src="logo.png" alt="Clothing Store Logo" class="logo">
+    </div>
 
-<!-- MAIN CONTENT -->
-<main class="main-content">
-  <h1 class="visually-hidden">Clothing Store Home Page</h1>
+    <!-- Search bar -->
+    <div class="nav-right">
+      <input type="search" id="search" placeholder="Search products">
+    </div>
 
-  <section class="products-section" aria-labelledby="new-collection-heading">
+  </header>
 
-    <!-- PRODUCT GRID -->
-    <div class="product">
-  <img src="product1.jpg" alt="Light Pink Women Pants with two pockets">
-  <p><strong>Light Pink Women Pants with two pockets</strong></p>
-  <button onclick="addToCart('Light Pink Women Pants')">Add to Cart</button>
-</div>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
-<div class="product">
-  <img src="product2.jpg" alt="Light Gray Fleece for women">
-  <p><strong>Light Gray Fleece</strong></p>
-  <button onclick="addToCart('Light Gray Fleece')">Add to Cart</button>
-</div>
+    <section class="products-section">
 
-<div class="product">
-  <img src="product3.jpg" alt="Yellow Sleeveless Dress for women">
-  <p><strong>Yellow Sleeveless Dress for Women</strong></p>
-  <button onclick="addToCart('Yellow Sleeveless Dress')">Add to Cart</button>
-</div>
+      <!-- Products grid -->
+      <div class="products">
 
-<div class="product">
-  <img src="product4.jpg" alt="Dark brown dress for women">
-  <p><strong>Dark Brown Dress for Women</strong></p>
-  <button onclick="addToCart('Dark Brown Dress')">Add to Cart</button>
-</div>
+        <div class="product">
+          <img src="product1.jpg" alt="Light Pink Women Pants">
+          <p><strong>Light Pink Women Pants</strong></p>
+          <button onclick="addToCart('Light Pink Women Pants')">Add to Cart</button>
+        </div>
 
+        <div class="product">
+          <img src="product2.jpg" alt="Light Gray Fleece">
+          <p><strong>Light Gray Fleece</strong></p>
+          <button onclick="addToCart('Light Gray Fleece')">Add to Cart</button>
+        </div>
 
-    <!-- NEW COLLECTION TEXT ON SIDE -->
-    <aside class="new-collection">
-      <h2 id="new-collection-heading">NEW COLLECTION</h2>
-      <p>Made to Wear</p>
-    </aside>
+        <div class="product">
+          <img src="product3.jpg" alt="Yellow Sleeveless Dress">
+          <p><strong>Yellow Sleeveless Dress</strong></p>
+          <button onclick="addToCart('Yellow Sleeveless Dress')">Add to Cart</button>
+        </div>
 
-  </section>
-</main>
+        <div class="product">
+          <img src="product4.jpg" alt="Dark Brown Dress">
+          <p><strong>Dark Brown Dress</strong></p>
+          <button onclick="addToCart('Dark Brown Dress')">Add to Cart</button>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; Rmohle MadeToStandOut</p>
-</footer>
+      </div>
+
+      <!-- Side column for new collection + table -->
+      <aside class="new-collection">
+
+        <h2>NEW COLLECTION</h2>
+        <p>Made to Wear</p>
+
+        <h3>Size Chart</h3>
+        <table>
+          <tr>
+            <th>Size</th>
+            <th>Bust</th>
+            <th>Waist</th>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>34"</td>
+            <td>26"</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>36"</td>
+            <td>28"</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>38"</td>
+            <td>30"</td>
+          </tr>
+        </table>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; Rmohle MadeToStandOut</p>
+    <p>Fashion Resources:</p>
+    <a href="https://www.vogue.com" target="_blank">Vogue</a> |
+    <a href="https://www.nordstrom.com" target="_blank">Nordstrom</a> |
+    <a href="https://www.zara.com" target="_blank">Zara</a>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
   <script>
-let cart = [];
+    // cart array to store added products
+    let cart = [];
 
-function addToCart(productName) {
-  cart.push(productName);
-  alert(productName + " added to cart!");
-  console.log(cart);
-}
-<script>
-// DYNAMIC LOGIN / LOGOUT BUTTON
-const navButtons = document.querySelectorAll('.nav-left .nav-button');
-const loginBtn = Array.from(navButtons).find(btn => btn.textContent === "Log In");
-const homeBtn = Array.from(navButtons).find(btn => btn.textContent === "Home");
+    // add product to cart function
+    function addToCart(productName) {
+      cart.push(productName);
+      alert(productName + " added to cart!");
+      console.log(cart);
+    }
 
-// Make Home button always go to main dashboard
-homeBtn.onclick = function() {
-  window.location.href = "index.html"; // redirects to dashboard
-}
+    // search products function
+    const searchInput = document.getElementById("search");
 
+    searchInput.addEventListener("keyup", function () {
+      let searchValue = searchInput.value.toLowerCase();
+      let products = document.querySelectorAll(".product");
 
-if (localStorage.getItem("loggedIn") === "true") {
-  loginBtn.textContent = "Logout";
-  loginBtn.onclick = function() {
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("userEmail");
-    localStorage.removeItem("userName");
-    alert("You have logged out.");
-    window.location.href = "index.html"; // stay on home after logout
-  }
-} else {
-  loginBtn.onclick = function() {
-    window.location.href = "login.html"; // go to login page if not logged in
-  }
-}
-</script>
+      products.forEach(function (product) {
+        let text = product.innerText.toLowerCase();
+        if (text.includes(searchValue)) {
+          product.style.display = ""; // show product
+        } else {
+          product.style.display = "none"; // hide product
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
-
