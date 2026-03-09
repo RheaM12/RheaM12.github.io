@@ -7,6 +7,52 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Boxed text style for About Us */
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto; /* center horizontally */
+    }
+
+    .logo-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .text-box {
+      padding: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fafafa;
+      line-height: 1.6;
+      font-size: 16px;
+      color: #111;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* External links list inside the box */
+    .text-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .text-box ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .text-box a {
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .text-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,13 +71,13 @@
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="main-content">
-    <!-- Logo at top -->
+  <main>
+    <!-- Logo -->
     <div class="logo-box">
       <img src="logo.png" alt="Clothing Store Logo" style="height:80px;">
     </div>
 
-    <!-- About text -->
+    <!-- About Us Box -->
     <div class="text-box">
       <h1>About Us</h1>
       <p>Welcome to Clothing Store! Our mission is to provide high-quality fashion for everyone.
@@ -40,7 +86,7 @@
          products that you will love and enjoy wearing every day.</p>
     </div>
 
-    <!-- External links section -->
+    <!-- Fashion Resources Box -->
     <div class="text-box">
       <h2>Fashion Resources</h2>
       <ul>
@@ -51,19 +97,16 @@
     </div>
   </main>
 
-  <!-- SCRIPT: LOGIN / LOGOUT BUTTON -->
+  <!-- LOGIN / LOGOUT SCRIPT -->
   <script>
-    // get all buttons
     const navButtons = document.querySelectorAll('.nav-button');
     const loginBtn = Array.from(navButtons).find(btn => btn.textContent === "Log In");
     const homeBtn = Array.from(navButtons).find(btn => btn.textContent === "Home");
 
-    // Home always redirects to index.html
-    homeBtn.onclick = () => {
-      window.location.href = "index.html";
-    }
+    // Home button always redirects
+    homeBtn.onclick = () => window.location.href = "index.html";
 
-    // Check if user is logged in
+    // Change login to logout if user is logged in
     if (localStorage.getItem("loggedIn") === "true") {
       loginBtn.textContent = "Logout";
       loginBtn.onclick = () => {
@@ -73,9 +116,7 @@
         window.location.href = "index.html";
       }
     } else {
-      loginBtn.onclick = () => {
-        window.location.href = "login.html";
-      }
+      loginBtn.onclick = () => window.location.href = "login.html";
     }
   </script>
 
